@@ -40,11 +40,13 @@ document.addEventListener("keydown", (event) => {
 });
 
 let min = new Date().getMinutes()
+const targetMin = min + 1 >= 60 ? 0 : min + 1
 
 const checkTime = setInterval(()=> {
   min = new Date().getMinutes()
-  if(min===38) {
+  console.log(min, targetMin)
+  if(min===targetMin) {  
     video.play()
     clearInterval(checkTime)
   }
-}, 50)
+}, 20)
